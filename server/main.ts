@@ -1,1 +1,4 @@
-import {Parties} from '../collections/parties.ts';
+import {loadParties} from './load-parties.ts';
+import {Meteor} from 'meteor/meteor';
+
+Meteor.startup(loadParties);
