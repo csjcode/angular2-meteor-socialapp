@@ -1,7 +1,9 @@
 
 ### Problems & Solutions (in order encountered)
 
-There were a number of configuraton proproblems
+There were a number of configuraton problems while I was doing the tutorial.
+
+I have cut and paste problems/solutions I encountered from the Meteor forums, Gist and other sources for educational/reference purposes! (I did not write them) 
 
 
 
