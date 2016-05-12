@@ -1,8 +1,13 @@
 
 ### Problems & Solutions (in order encountered)
 
+There were a number of configuraton proproblems
 
---------------- PROBLEM [solved]
+
+
+--------------- PROBLEM [solved] ---------------
+
+
 
 https://forums.meteor.com/t/angular-meteor-com-angular2-tutorial-mongo-namespace-error/19722
 I finished the 3rd section of the tutorial and everything is working fine, live updating from Mongo insertions and everything, but I receive the following error while meteor is running.
@@ -23,7 +28,11 @@ typings install es6-promise --ambient
 typings install es6-shim --ambient
 
 
---------------- PROBLEM [solved]
+
+
+--------------- PROBLEM [solved] ---------------
+
+
 
 [SOLVED] Meteor angular2 : import {Meteor} from ‘meteor/meteor’; cannot find module
 https://forums.meteor.com/t/solved-meteor-angular2-import-meteor-from-meteor-meteor-cannot-find-module/20985
@@ -41,9 +50,45 @@ Do you know why i have to deal with that file ? Is it mandatory for all meteor 1
 Thanks a lot for your work on meteor/angularX
 
 
---------------- PROBLEM [solved]
 
-For some reason I wasn;'t including:
+--------------- PROBLEM [solved] ---------------
+
+
+
+For some reason I wasn''t including:
  import {Component, NgZone} from 'angular2/core';
 
  So was getting an error that NgZone wasn't found.
+
+
+
+--------------- SECTON 3.7 PROBLEM [solved] ---------------
+
+
+
+https://forums.meteor.com/t/for-people-who-are-following-socially-tutorial-and-met-problems/22994
+To run Angular 2 RC1 and Meteor 1.3 successfully, you need:
+
+    Remove your old Angular 2 if you are using Angular 2 Beta version:
+    npm uninstall --save angular2
+
+    And run this to install Angular RC 1:
+    npm install --save @angular/core @angular/common @angular/platform-browser @angular/platform-browser-dynamic @angular/router-deprecated
+
+    When you import, use new one:
+    1) Change
+    import { Component } from 'angular2/core';
+    to
+    import { Component } from '@angular/core';
+    2) Change
+    import { bootstrap } from 'angular2/platform/browser';
+    to
+    import { bootstrap } from '@angular/platform-browser-dynamic'; // use this if you do not use meteor features
+    or
+    import { bootstrap } from 'angular2-meteor-auto-bootstrap'; // use this if you use meteor features
+    Check here2 for the rest of them.
+
+    Change
+    *ngFor="#party of parties"
+    to
+    *ngFor="let party of parties"

@@ -1,22 +1,20 @@
 import 'reflect-metadata';
 import 'zone.js/dist/zone';
-import {Component, NgZone} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import { Component } from '@angular/core';
+import {bootstrap} from 'angular2-meteor-auto-bootstrap';
 import {Parties} from '../collections/parties';
-import {Tracker} from 'meteor/tracker';
+import {Mongo} from "meteor/mongo";
 
 @Component({
   selector: 'app',
   templateUrl: 'client/app.html'
 })
 class Socially {
-  parties: Array<Object>;
+  parties: Mongo.Cursor<Object>;
 
-  constructor (zone: NgZone) {
-    Tracker.autorun(() => zone.run(() => {
-      this.parties = Parties.find().fetch();
-    }));
- }
+  constructor () {
+    this.parties = Parties.find();
+  }
 }
 
 bootstrap(Socially);
